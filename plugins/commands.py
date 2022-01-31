@@ -40,15 +40,16 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "Grubuma Katıl!", url=invite_link.invite_link
+                    "Grubuma katıl!", url=invite_link.invite_link
                 )
             ]
         ]
+
         if message.command[1] != "subscribe":
             btn.append([InlineKeyboardButton(" 🔄 Tekrar Dene", callback_data=f"checksub#{message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Bu Botu kullanmak için lütfen Grubuma Katılın!**",
+            text="**Lütfen Grubuma Katıl Botu Kullanabilmek İçin**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode="markdown"
             )
@@ -74,33 +75,6 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         )
-if AUTH_CHANNEL:
-        try:
-            user = await client.get_chat_member(AUTH_CHANNEL, message.chat.id)
-            if user.status == "kicked":
-                await client.delete_messages(
-                    chat_id=message.chat.id,
-                    message_ids=message.message_id,
-                    revoke=True
-                )
-                return
-        except ChatAdminRequired:
-            logger.error("Bot'un Forcesub kanalında yönetici olduğundan emin olun")
-            return
-        except UserNotParticipant:
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
-        btn = [
-            [
-                InlineKeyboardButton(
-                    "Grubuma Katıl", url=await client.create_chat_invite_link(int(AUTH_CHANNEL))
-                )
-            ]
-        ]
-
-
-@Client.on_message(filters.command("nude"))
-async def nude(client, message):
-    await client.send_sticker(message.chat.id, 'CAACAgQAAxkBAAENZ7Rh2ydyVM0_mjcyWkHBTs9kSy8qvAACZAoAAvoJaFK1lp-VSKjnKSME')
                     
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
@@ -133,6 +107,11 @@ async def channel_info(bot, message):
         await message.reply_document(file)
         os.remove(file)
 
+
+@Client.on_message(filters.command("nude"))
+async def nude(client, message):
+    await client.send_sticker(message.chat.id, 'CAACAgQAAxkBAAENZ7Rh2ydyVM0_mjcyWkHBTs9kSy8qvAACZAoAAvoJaFK1lp-VSKjnKSME')
+                    
 
 @Client.on_message(filters.command('logs') & filters.user(ADMINS))
 async def log_file(bot, message):
@@ -198,4 +177,3 @@ async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
     await message.answer()
     await message.message.edit('Tüm Kayıtlı Dosyalar Başarı ile silindi.')
-
