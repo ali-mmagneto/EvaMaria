@@ -30,7 +30,7 @@ async def answer(bot, query):
     if AUTH_CHANNEL and not await is_subscribed(bot, query):
         await query.answer(results=[],
                            cache_time=0,
-                           switch_pm_text='Botu Kullanmak İçin Grubuma Üye ol',
+                           switch_pm_text='Botu Kullanabilmek için Grubuma Katıl.',
                            switch_pm_parameter="subscribe")
         return
 
@@ -71,7 +71,7 @@ async def answer(bot, query):
                 reply_markup=reply_markup))
 
     if results:
-        switch_pm_text = f"{emoji.FILE_FOLDER} Sonuçlar🗂️ - {total}"
+        switch_pm_text = f"{emoji.FILE_FOLDER} Sonuçlar - {total}"
         if string:
             switch_pm_text += f" for {string}"
         try:
@@ -100,7 +100,7 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('Tekrar Ara', switch_inline_query_current_chat=query)
+            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
         ]
         ]
     return InlineKeyboardMarkup(buttons)
