@@ -42,7 +42,8 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('🔍 Ara', switch_inline_query_current_chat=''),
-        ]]
+            InlineKeyboardButton('Bot Nasıl Kullanılır?', url='https://t.me/anagrupp/7402')
+            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
