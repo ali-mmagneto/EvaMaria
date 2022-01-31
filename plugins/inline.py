@@ -67,7 +67,7 @@ async def answer(bot, query):
                 title=file.file_name,
                 file_id=file.file_id,
                 caption=f_caption,
-                description=f'Size: {get_size(file.file_size)}\nType: {file.file_type}',
+                description=f'Boyut: {get_size(file.file_size)}\nTür: {file.file_type}',
                 reply_markup=reply_markup))
 
     if results:
