@@ -19,6 +19,7 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons =[
+            [
                 InlineKeyboardButton('Ara 🔍', switch_inline_query_current_chat=''),
                 InlineKeyboardButton('Bot Nasıl Kullanılır?', url='https://t.me/anagrupp/7402')
             ],
