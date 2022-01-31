@@ -1,6 +1,7 @@
 class script(object):
     START_TXT = """Merhaba {},
-Benim Adım <a href='https://t.me/Anagrupbot'>Ana Grup Bot</a>, Film Sağlayabilirim, sadece beni grubuna ekle ve keyfini Çıkar. 😍"""
+Ben <a href='https://t.me/Anagrupbot'>Ana Grup Bot</a>, İnline Modda (Satır içi) çalışıyorum ve size film sağlamaya çalışıyorum. 
+Eğer senin de bota eklenmesini istediğin film veya dizi önerin varsa href='https://t.me/Anagrupp'>İstek Ve Sohbet</a> Grubuna Beklerim."""
     HELP_TXT = """Merhaba {}
 İşte Komutlarım İçin Yardım ."""
     ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: Quickwaste Film Botu
