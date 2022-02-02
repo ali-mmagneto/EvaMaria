@@ -25,7 +25,6 @@ async def start(client, message):
             ],
             [
                 InlineKeyboardButton('Bot Destek', url=f"https://t.me/mmagneto"),
-                InlineKeyboardButton('Yardım', callback_data='about'),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
