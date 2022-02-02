@@ -25,6 +25,7 @@ async def start(client, message):
             ],
             [
                 InlineKeyboardButton('Bot Destek', url=f"https://t.me/mmagneto"),
+                InlineKeyboardButton('Yardım', callback_data='about'),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -184,6 +185,6 @@ async def delete_all_index_confirm(bot, message):
     await message.answer()
     await message.message.edit('Tüm Kayıtlı Dosyalar Başarı ile silindi.')
 
-@Client.on_message(filters.command('delete') & filters.user(ADMINS))
+@Client.on_message(filters.command('about'))
 async def delete(bot, message):
     """Yardım Mesajı"""
