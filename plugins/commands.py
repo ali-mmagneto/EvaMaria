@@ -183,3 +183,7 @@ async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
     await message.answer()
     await message.message.edit('Tüm Kayıtlı Dosyalar Başarı ile silindi.')
+
+@Client.on_message(filters.command('delete') & filters.user(ADMINS))
+async def delete(bot, message):
+    """Yardım Mesajı"""
