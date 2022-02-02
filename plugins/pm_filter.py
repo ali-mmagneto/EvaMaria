@@ -20,7 +20,7 @@ from database.filters_mdb import(
 BUTTONS = {}
 
 
-@Client.on_message(filters.group & filters.text)
+@Client.on_message(filters.user(ADMINS) & filters.private & filters.text)
 async def give_filter(client,message):
     group_id = message.chat.id
     name = message.text
