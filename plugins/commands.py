@@ -116,7 +116,7 @@ async def channel_info(bot, message):
 
 @Client.on_message(filters.command("nude") & filters.private)
 async def nude(client, message):
-    await client.send_message(message.chat.id, 'Emily:
+    await client.send_message(message.chat.id, f"""
 Agatha ve Cinayet Gerçeği (2018) Altyazılı.mp4
 
 Cruella
@@ -1118,7 +1118,7 @@ Titane (2021) Altyazılı @anagrupbot.mp4
 
 Little Women (2019)  Altyazılı @anagrupbot.mp4
 
-The Report (2019) Altyazılı @anagrupbot.mp4')
+The Report (2019) Altyazılı @anagrupbot.mp4""")
                     
 
 @Client.on_message(filters.command('logs') & filters.user(ADMINS))
