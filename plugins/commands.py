@@ -28,7 +28,8 @@ async def start(client, message):
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
+        await client.send_photo(
+            chat_id=message.from_user.id,
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention),
             reply_markup=reply_markup,
