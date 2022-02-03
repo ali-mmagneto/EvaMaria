@@ -33,6 +33,7 @@ async def start(client, message):
             caption=script.START_TXT.format(message.from_user.mention),
             reply_markup=reply_markup,
             parse_mode='html'
+            protect_content=True
         )
         if not await db.is_user_exist(message.from_user.id):
             await db.add_user(message.from_user.id, message.from_user.first_name)
